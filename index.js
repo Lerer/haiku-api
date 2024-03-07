@@ -11,7 +11,7 @@ app.get('/', (req, res) => res.json('Welcome to my Haiku API'));
 app.get('/haiku', async (req, res) => {
   const authHeaders = req.headers;
 
-  if (authHeaders.secretKey !== 'super-secret-key') {
+  if (authHeaders.secretkey !== 'super-secret-key') {
     res
       .status(401)
       .json({ message: 'You are not authorized to make this request.' });
