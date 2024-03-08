@@ -11,7 +11,7 @@ app.get('/', (req, res) => res.json('Welcome to my Haiku API'));
 app.get('/haiku', async (req, res) => {
   const authHeaders = req.headers;
 
-  if (authHeaders.secretkey !== 'super-secret-key') {
+  if (authHeaders.secretkey !== process.env.ZUPLO_API_KEY) {
     res
       .status(401)
       .json({ message: 'You are not authorized to make this request.' });
